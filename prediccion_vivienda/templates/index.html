@@ -1,0 +1,16 @@
+<h1>Resultados del Modelo de Regresión</h1>
+
+<p><strong>R² Score:</strong> {{ resultado.r2_score }}</p>
+<p><strong>Error Cuadrático Medio (MSE):</strong> {{ resultado.mse }}</p>
+
+<h2>Coeficientes:</h2>
+<ul>
+  {% for nombre, valor in resultado.coeficientes.items %}
+    <li>{{ nombre }}: {{ valor }}</li>
+  {% endfor %}
+</ul>
+
+<p><strong>Intercepto:</strong> {{ resultado.intercepto }}</p>
+
+<h2>Gráfico de Predicción vs Real</h2>
+<img src="{% static resultado.grafico_url %}" alt="Gráfico de regresión" width="800" />

@@ -28,6 +28,23 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+import os
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'prediccion_vivienda', 'static'),
+]
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # opcional
+        'APP_DIRS': True,  # 👈 Necesario para buscar dentro de las apps
+    },
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +58,9 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'api',
+    'prediccion_vivienda',
+
+
 
 ]
 

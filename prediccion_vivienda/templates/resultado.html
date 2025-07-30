@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados del Modelo</title>
+</head>
+<body>
+    <h1>Resultados del Modelo de Regresión</h1>
+
+    <p><strong>R² Score:</strong> {{ resultado.r2_score }}</p>
+    <p><strong>MSE:</strong> {{ resultado.mse }}</p>
+
+    <h2>Coeficientes:</h2>
+    <ul>
+        {% for nombre, valor in resultado.coeficientes.items %}
+            <li>{{ nombre }}: {{ valor }}</li>
+        {% endfor %}
+    </ul>
+
+    <p><strong>Intercepto:</strong> {{ resultado.intercepto }}</p>
+
+    <h2>Gráfico Real vs Predicción</h2>
+    <img src="{% static resultado.grafico_url %}" width="800" alt="Gráfico de regresión" />
+</body>
+</html>
